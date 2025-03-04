@@ -17,9 +17,6 @@ return {
 			{ "<C-x>",      ":Telescope flutter commands<CR>", desc = "flutter" },
 		}
 	end,
-	config = function()
-		require("packsettings.telescope")
-	end,
 	opts = {
 		defaults = {
 			sorting_strategy = "ascending",

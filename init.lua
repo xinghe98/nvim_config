@@ -14,6 +14,7 @@ require("config.options")
 require("config.keymaps")
 require("config.autocmd")
 require('telescope').load_extension('coc')
+vim.cmd("colorscheme gruvbox-material")
 vim.g.coc_global_extensions = {
 	"coc-marketplace",
 	"coc-word",

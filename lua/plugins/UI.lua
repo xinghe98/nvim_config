@@ -21,42 +21,6 @@ return {
 		version = "*", -- Use for stability; omit to use `main` branch for the latest features
 		event = "VeryLazy",
 	},
-	{
-		"echasnovski/mini.indentscope",
-		version = "*",
-		event = "BufRead", -- 事件触发插件加载
-		opts = {
-			mappings = {
-				-- Textobjects
-				object_scope = "",
-				object_scope_with_border = "",
-
-				-- Motions (jump to respective border line; if not present - body line)
-				goto_top = "[t",
-				goto_bottom = "]t",
-			},
-			symbol = "┃", -- 缩进线的符号
-			options = { try_as_border = true }, -- 配置项
-		},
-		init = function()
-			-- 禁用特定文件类型的缩进高亮
-			vim.api.nvim_create_autocmd("FileType", {
-				pattern = {
-					"help",
-					"alpha",
-					"dashboard",
-					"lazy",
-					"mason",
-					"neo-tree",
-					"Trouble",
-					"toggleterm",
-				},
-				callback = function()
-					vim.b.miniindentscope_disable = true
-				end,
-			})
-		end,
-	},
 
 	{ "voldikss/vim-floaterm",    lazy = false },
 	{ "folke/todo-comments.nvim", dependencies = { "nvim-lua/plenary.nvim" }, event = "VimEnter" },

@@ -1,8 +1,16 @@
 return {
 	"folke/noice.nvim",
 	event = "VeryLazy",
-	opts = {
-		{
+	dependencies = {
+		-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+		"MunifTanjim/nui.nvim",
+		-- OPTIONAL:
+		--   `nvim-notify` is only needed, if you want to use the notification view.
+		--   If not available, we use `mini` as the fallback
+		"rcarriga/nvim-notify",
+	},
+	config = function()
+		require("noice").setup({
 			views = {
 				mini = {
 					win_options = {
@@ -200,14 +208,6 @@ return {
 			},  --- @see section on routes
 			status = {}, --- @see section on statusline components
 			format = {}, --- @see section on formatting
-		}
-	},
-	dependencies = {
-		-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-		"MunifTanjim/nui.nvim",
-		-- OPTIONAL:
-		--   `nvim-notify` is only needed, if you want to use the notification view.
-		--   If not available, we use `mini` as the fallback
-		"rcarriga/nvim-notify",
-	},
+		})
+	end
 }

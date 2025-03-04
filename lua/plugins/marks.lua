@@ -1,8 +1,8 @@
 return {
 	'chentoast/marks.nvim',
 	event = 'VeryLazy',
-	opts = {
-		{
+	config = function()
+		require 'marks'.setup {
 			default_mappings = false,
 			mappings = {
 				set = "'",
@@ -15,6 +15,5 @@ return {
 				prev = false -- pass false to disable only this default mapping
 			}
 		}
-
-	}
+	end
 }
