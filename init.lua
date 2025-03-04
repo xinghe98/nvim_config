@@ -8,12 +8,18 @@
 ╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝ ╚═════╝     ╚═╝  ╚═╝╚══════╝
 
  ]]
+
+-- 主要配置
 require("config.markdown")
 require("config.lazy")
 require("config.options")
 require("config.keymaps")
 require("config.autocmd")
+
+-- telescope 的coc插件
 require('telescope').load_extension('coc')
+
+-- 加载主题
 vim.cmd("colorscheme gruvbox-material")
 vim.g.coc_global_extensions = {
 	"coc-marketplace",

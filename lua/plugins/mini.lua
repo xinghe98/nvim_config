@@ -21,13 +21,13 @@ return { {
 	mappings = {
 		-- Toggle comment (like `gcip` - comment inner paragraph) for both
 		-- Normal and Visual modes
-		comment = '<C-,>',
+		comment = '<C-_>',
 
 		-- Toggle comment on current line
-		comment_line = '<C-,>',
+		comment_line = '<C-_>',
 
 		-- Toggle comment on visual selection
-		comment_visual = '<C-,>',
+		comment_visual = '<C-_>',
 
 		-- Define 'comment' textobject (like `dgc` - delete whole comment block)
 		-- Works also in Visual mode if mapping differs from `comment_visual`
@@ -42,6 +42,20 @@ return { {
 		post = function() end,
 	},
 },
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		event = "BufEnter",
+		main = "ibl",
+		dependencies = {
+			"HiPhish/rainbow-delimiters.nvim",
+		},
+		opts = {
+			scope = { enabled = false },
+		},
+		--[[ config = function()
+			require("packsettings.indentline")
+		end, ]]
+	},
 	{
 		"echasnovski/mini.indentscope",
 		version = "*",

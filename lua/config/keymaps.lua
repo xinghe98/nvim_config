@@ -79,6 +79,10 @@ end, { desc = "Next todo comment" })
 vim.keymap.set("n", "[t", function()
 	require("todo-comments").jump_prev()
 end, { desc = "Previous todo comment" })
+keymap("n", "<C-/>", "gcc", { desc = "Toggle comment for line" })
+keymap("v", "<C-/>", "gc", { desc = "Toggle comment for selection" })
+keymap("n", "<C-_>", "gcc", { desc = "Toggle comment for line" })
+keymap("v", "<C-_>", "gc", { desc = "Toggle comment for line" })
 
 
 vim.cmd([[func! CompileRunGcc()
