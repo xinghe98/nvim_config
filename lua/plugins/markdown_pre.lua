@@ -1,9 +1,6 @@
 return {
 	"iamcco/markdown-preview.nvim",
 	ft = "markdown",
-	config = function()
-		require("packsettings.markdownpre")
-	end,
 	dependencies = {
 
 		{ "dhruvasagar/vim-table-mode" },
