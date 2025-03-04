@@ -20,7 +20,7 @@
 	"suggest.insertMode": "insert",
 	"suggest.triggerAfterInsertEnter": true,
 	"suggest.autoTrigger": "always",
-	"suggest.defaultSortMethod": "none",
+	"suggest.defaultSortMethod": "alphabetical",
 	"suggest.detailField": "abbr",
 	"suggest.minTriggerInputLength": 2,
 	"suggest.timeout": 600,
