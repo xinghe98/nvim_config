@@ -1,7 +1,7 @@
 return {
 	"nvim-telescope/telescope.nvim",
 	version = false,
-	event = "VimEnter",
+	cmd = "Telescope",
 	dependencies = {
 		"nvim-lua/plenary.nvim", -- Lua 开发模块
 		"BurntSushi/ripgrep", -- 文字查找
