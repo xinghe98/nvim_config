@@ -21,6 +21,9 @@ require('telescope').load_extension('coc')
 
 -- 加载主题
 vim.cmd("colorscheme gruvbox-material")
+vim.g.gruvbox_material_enable_italic = true
+vim.g.gruvbox_material_transparent_background = 1
+vim.g.gruvbox_material_current_word = "underline"
 vim.g.coc_global_extensions = {
 	"coc-marketplace",
 	"coc-word",
