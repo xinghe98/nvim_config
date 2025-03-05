@@ -1,4 +1,4 @@
-return {
+return { {
 	'echasnovski/mini.nvim',
 	version = '*',
 	event = "VeryLazy",
@@ -41,4 +41,6 @@ return {
 		-- After successful commenting. Does nothing by default.
 		post = function() end,
 	},
+},
+	{ "HiPhish/rainbow-delimiters.nvim" }
 }
