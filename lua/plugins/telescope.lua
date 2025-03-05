@@ -10,9 +10,6 @@ return {
 	},
 	keys = function()
 		return {
-			{ "<C-f>",      "<cmd>Telescope find_files<cr>",   desc = "Find Files" },
-			{ "<C-g>",      "<cmd>Telescope live_grep<cr>",    desc = "Find Grep" },
-			{ "<leader>fb", "<cmd>Telescope buffers<cr>",      desc = "Find buffers" },
 			{ "<leader>fh", "<cmd>Telescope help_tags<cr>",    desc = "Find help" },
 			{ "<C-x>",      ":Telescope flutter commands<CR>", desc = "flutter" },
 		}
