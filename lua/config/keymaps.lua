@@ -78,6 +78,9 @@ vim.keymap.set("n", "[t", function()
 	require("todo-comments").jump_prev()
 end, { desc = "Previous todo comment" })
 
+
+keymap("n", "<C-x>", "<cmd>CocList --input=flutter. commands<CR>", opts)
+
 keymap("n", "<C-/>", "gcc", { desc = "Toggle comment for line" })
 keymap("v", "<C-/>", "gc", { desc = "Toggle comment for selection" })
 keymap("n", "<C-_>", "gcc", { desc = "Toggle comment for line" })

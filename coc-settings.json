@@ -114,6 +114,10 @@
 	"list.source.files.excludePatterns": ["target/.*", "**/.git/**", "**/node_modules/**", "dist"],
 	"list.nextKeymap": "<tab>",
 	"list.previousKeymap": "<S-tab>",
+	"list.normalMappings": {
+		"<Tab>": "do:next",
+		"<S-Tab>": "do:previous"
+	},
 	"list.floatPreview": true,
 	// "list.previewSplitRight": true,
 	"list.statusLineSegments": [],
