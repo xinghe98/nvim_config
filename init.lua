@@ -16,9 +16,6 @@ require("config.options")
 require("config.keymaps")
 require("config.autocmd")
 
--- telescope 的coc插件
-require('telescope').load_extension('coc')
-
 -- 加载主题
 vim.cmd("colorscheme gruvbox-material")
 vim.g.gruvbox_material_enable_italic = true

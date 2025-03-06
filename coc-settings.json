@@ -118,7 +118,7 @@
 	// "list.previewSplitRight": true,
 	"list.statusLineSegments": [],
 	"list.alignColumns": true,
-	"list.indicator": "😀",
+	"list.indicator": "coc-😀",
 	"snippets.ultisnips.directories": [
 		"$HOME/.config/nvim/Ultisnips/",
 		"$HOME/.config/nvim/plugged/vim-snippets/UltiSnips/"
