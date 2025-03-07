@@ -17,10 +17,14 @@ require("config.keymaps")
 require("config.autocmd")
 
 -- 加载主题
-vim.cmd("colorscheme gruvbox-material")
-vim.g.gruvbox_material_enable_italic = true
-vim.g.gruvbox_material_transparent_background = 1
-vim.g.gruvbox_material_current_word = "underline"
+vim.cmd("colorscheme deus")
+-- 覆盖高亮组以实现透明背景
+vim.api.nvim_set_hl(0, 'Normal', { bg = 'NONE' })
+vim.api.nvim_set_hl(0, 'NormalNC', { bg = 'NONE' })
+vim.api.nvim_set_hl(0, 'SignColumn', { bg = 'NONE' })
+vim.api.nvim_set_hl(0, 'LineNr', { bg = 'NONE' })
+
+
 vim.g.coc_global_extensions = {
 	"coc-marketplace",
 	"coc-word",
