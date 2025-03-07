@@ -45,6 +45,7 @@ hi CocSymbolBoolean ctermfg=4 guifg=#FFAB91
 hi CocSymbolNamespace ctermfg=4 guifg=#FFAB91
 hi CocSymbolString ctermfg=2 guifg=#F44336
 hi CocSymbolEnumMember ctermfg=223 guifg=#AB47BC
+hi CocHighlightText guibg=#696969
 ]])
 		vim.api.nvim_command("command! -nargs=? Fold :call CocAction('fold', <f-args>)")
 		vim.api.nvim_command("hi! link CocPum Pmenu")

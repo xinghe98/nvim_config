@@ -1,5 +1,5 @@
 return {
-	{ "xiyaowong/nvim-cursorword",   lazy = false },
+	-- { "xiyaowong/nvim-cursorword",   lazy = false },
 	{
 		"nvim-treesitter/nvim-treesitter",
 		event = "VimEnter",
@@ -103,6 +103,7 @@ return {
 		config = function()
 			require("everforest").setup({
 				transparent_background_level = 100,
+				inlay_hints_background = "dimmed",
 			})
 		end
 	},
