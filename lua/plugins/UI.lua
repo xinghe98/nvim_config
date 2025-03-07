@@ -96,7 +96,16 @@ return {
 
 	},
 	{ "ap/vim-css-color",      event = "VimEnter", lazy = false },
-	{ "theniceboy/nvim-deus",  lazy = false,       priority = 1000 },
+	{
+		"neanias/everforest-nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("everforest").setup({
+				transparent_background_level = 100,
+			})
+		end
+	},
 	{
 		"sainnhe/gruvbox-material",
 		config = function()
