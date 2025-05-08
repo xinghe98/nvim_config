@@ -1,18 +1,5 @@
 return {
 	-- { "xiyaowong/nvim-cursorword",   lazy = false },
-	{
-		"nvim-treesitter/nvim-treesitter",
-		event = "VimEnter",
-		build = ":TSUpdate",
-		opts = {
-			ignore_install = { "help" },
-			ensure_installed = { "vim", "vimdoc", "go", "python", "typescript", "markdown", "markdown_inline", "query", "c", "vim", "html", "vue", "lua", "dart" },
-			highlight = {
-				enable = true,
-			},
-			-- ...
-		},
-	},
 	{ "nvim-tree/nvim-web-devicons", lazy = true },
 
 	{ "voldikss/vim-translator",     event = "BufEnter" },

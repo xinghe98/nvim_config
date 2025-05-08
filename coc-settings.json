@@ -181,7 +181,6 @@
 	"typescript.inlayHints.parameterNames.enabled": "all",
 	"typescript.suggestionActions.enabled": true,
 	"typescript.inlayHints.parameterTypes.enabled": true,
-	"typescript.inlayHints.variableTypes.enabled": true,
 	"typescript.implementationsCodeLens.enabled": true,
 	"typescript.referencesCodeLens.enabled": true,
 	"inlayHint.refreshOnInsertMode": false,

@@ -16,7 +16,7 @@ require("config.options")
 require("config.keymaps")
 require("config.autocmd")
 
-vim.cmd([[colorscheme everforest]])
+vim.cmd([[colorscheme gruvbox-material]])
 
 
 vim.g.coc_global_extensions = {
@@ -25,7 +25,7 @@ vim.g.coc_global_extensions = {
 	"coc-css",
 	"coc-highlight",
 	"coc-sumneko-lua",
-	"coc-go",
+	-- "coc-go",
 	"coc-diagnostic",
 	"coc-docker",
 	-- "coc-eslint",
