@@ -199,6 +199,19 @@
 					"rangeVariableTypes": true // range 循环变量类型提示
 				}
 			}
+		},
+		"dart": {
+			"command": "dart",
+			"args": ["language-server", "--protocol=lsp"],
+			"filetypes": ["dart"],
+			"initializationOptions": {
+				"onlyAnalyzeProjectsWithOpenFiles": true,
+				"suggestFromUnimportedLibraries": true
+			},
+			"settings": {
+				"dart.completeFunctionCalls": true,
+				"dart.showTodos": true
+			}
 		}
 	},
 	"go.goplsOptions": {
