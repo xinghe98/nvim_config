@@ -184,6 +184,23 @@
 	"typescript.implementationsCodeLens.enabled": true,
 	"typescript.referencesCodeLens.enabled": true,
 	"inlayHint.refreshOnInsertMode": false,
+	"languageserver": {
+		"golang": {
+			"command": "gopls",
+			"rootPatterns": ["go.mod"],
+			"filetypes": ["go"],
+			"initializationOptions": {
+				"hints": {
+					"assignVariableTypes": true, // 显示变量类型提示
+					"compositeLiteralFields": true, // 结构体字段名提示
+					"constantValues": true, // 常量值提示
+					"functionTypeParameters": true, // 函数类型参数提示
+					"parameterNames": true, // 参数名提示
+					"rangeVariableTypes": true // range 循环变量类型提示
+				}
+			}
+		}
+	},
 	"go.goplsOptions": {
 		"gofumpt": true,
 		"hints": {
