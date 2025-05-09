@@ -47,6 +47,10 @@ hi CocSymbolString ctermfg=2 guifg=#F44336
 hi CocSymbolEnumMember ctermfg=223 guifg=#AB47BC
 hi CocHighlightText guibg=#696969
 ]])
+
+		-----------telescope
+		require('telescope').load_extension('coc')
+
 		vim.api.nvim_command("command! -nargs=? Fold :call CocAction('fold', <f-args>)")
 		vim.api.nvim_command("hi! link CocPum Pmenu")
 
@@ -87,11 +91,14 @@ hi CocHighlightText guibg=#696969
 		-- GoTo code navigation
 		keyset("n", "gd", "<Plug>(coc-definition)", { silent = true })
 		keyset("n", "gy", "<Plug>(coc-type-definition)", { silent = true })
-		-- keyset("n", "gi", "<cmd>Telescope coc implementations<CR>", { silent = true })
-		-- keyset("n", "gr", "<cmd>Telescope coc references<CR>", { silent = true })
-		keyset("n", "gr", "<Plug>(coc-references)", { silent = true })
-		keyset("n", "gi", "<Plug>(coc-implementation)", { silent = true })
+		keyset("n", "gi", "<cmd>Telescope coc implementations<CR>", { silent = true })
+		keyset("n", "gr", "<cmd>Telescope coc references<CR>", { silent = true })
+		-- keyset("n", "gr", "<Plug>(coc-references)", { silent = true })
+		-- keyset("n", "gi", "<Plug>(coc-implementation)", { silent = true })
 		keyset("n", "<C-c>", ":<C-u>CocList commands<cr>", { silent = true })
+		-- keyset("n", "<C-x>", "<cmd>CocList --input=flutter. commands<CR>", opts)
+
+
 		keyset("n", "gh", ':call CocAction("doHover")<cr>', { silent = true })
 		keyset("n", "<leader>ge", '<Plug>(coc-diagnostic-info)', { silent = true })
 		-- keyset("n", "<leader>ff", "<cmd>CocList --auto-preview files<cr>", { silent = true })

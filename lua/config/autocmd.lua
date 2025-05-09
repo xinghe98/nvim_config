@@ -39,3 +39,17 @@ vim.api.nvim_create_autocmd("User", {
 	pattern = "CocStatusChange",
 	callback = require("lualine").refresh,
 })
+vim.api.nvim_create_autocmd("ColorScheme", {
+	pattern = "*", -- 对所有主题生效
+	callback = function()
+		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
+		vim.api.nvim_set_hl(0, "FloatBorder", { bg = "NONE" })
+	end,
+})
+-- ~/.config/nvim/lua/config/autocmds.lua
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "markdown",
+	callback = function()
+		vim.opt_local.spell = false -- 关闭拼写检查
+	end,
+})
