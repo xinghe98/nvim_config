@@ -11,7 +11,6 @@
 	"coc.preferences.formatOnType": true,
 	"extensions.updateCheck": "daily",
 	"coc.preferences.messageLevel": "error",
-	"suggest.labelMaxLength": 200,
 	"suggest.localityBonus": true,
 	"suggest.removeCurrentWord": true,
 	"suggest.noselect": true,
@@ -22,6 +21,7 @@
 	"suggest.autoTrigger": "always",
 	"suggest.defaultSortMethod": "alphabetical",
 	"suggest.detailField": "abbr",
+	"suggest.labelMaxLength": 65,
 	"suggest.minTriggerInputLength": 2,
 	"suggest.timeout": 600,
 	"diagnostic.floatConfig": {
