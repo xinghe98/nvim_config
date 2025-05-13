@@ -46,9 +46,10 @@ keymap("v", "<S-Tab>", "<", opts)
 keymap("v", "<Tab>", ">", opts)
 keymap("n", "qq", ":nohlsearch<CR>", opts)
 keymap("n", "<S-s>", ":w<CR>", opts)
+keymap("n", "<C-s>", ":w<CR>", opts)
 keymap("n", "<S-q>", ":q<CR>", opts)
 --[[ keymap('n','<leader><leader>p', ':set paste<CR>',opts)
-keymap('n', '<leader>np', ':set nopaste<CR>',opts) ]]
+	keymap('n', '<leader>np', ':set nopaste<CR>',opts) ]]
 keymap("n", "r", ":call CompileRunGcc()<CR>", opts)
 keymap("n", "<leader>t", ":TranslateW<CR>", opts)
 keymap("v", "<leader>t", ":TranslateW<CR>", opts)
@@ -83,8 +84,6 @@ keymap("n", "<C-/>", "gcc", { desc = "Toggle comment for line" })
 keymap("v", "<C-/>", "gc", { desc = "Toggle comment for selection" })
 keymap("n", "<C-_>", "gcc", { desc = "Toggle comment for line" })
 keymap("v", "<C-_>", "gc", { desc = "Toggle comment for line" })
-
-
 vim.cmd([[func! CompileRunGcc()
 	exec "w"
 	if &filetype == 'python'

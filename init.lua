@@ -9,14 +9,16 @@
 
  ]]
 
+
+if not vim.g.vscode then
+	require("config.lazy")
+	require("config.options")
+	vim.cmd([[colorscheme gruvbox-material]])
+	require("config.autocmd")
+end
 -- 主要配置
 require("config.markdown")
-require("config.lazy")
-require("config.options")
 require("config.keymaps")
-require("config.autocmd")
-
-vim.cmd([[colorscheme gruvbox-material]])
 
 
 vim.g.coc_global_extensions = {
