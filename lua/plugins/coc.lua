@@ -92,10 +92,10 @@ hi CocHighlightText guibg=#696969
 		-- GoTo code navigation
 		keyset("n", "gd", "<Plug>(coc-definition)", { silent = true })
 		keyset("n", "gy", "<Plug>(coc-type-definition)", { silent = true })
-		-- keyset("n", "gi", "<cmd>Telescope coc implementations<CR>", { silent = true })
-		-- keyset("n", "gr", "<cmd>Telescope coc references<CR>", { silent = true })
-		keyset("n", "gr", "<Plug>(coc-references)", { silent = true })
-		keyset("n", "gi", "<Plug>(coc-implementation)", { silent = true })
+		keyset("n", "gi", "<cmd>Telescope coc implementations<CR>", { silent = true })
+		keyset("n", "gr", "<cmd>Telescope coc references<CR>", { silent = true })
+		-- keyset("n", "gr", "<Plug>(coc-references)", { silent = true })
+		-- keyset("n", "gi", "<Plug>(coc-implementation)", { silent = true })
 		keyset("n", "<C-c>", ":<C-u>CocList commands<cr>", { silent = true })
 		-- keyset("n", "<C-x>", "<cmd>CocList --input=flutter. commands<CR>", opts)
 
