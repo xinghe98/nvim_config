@@ -1,32 +1,27 @@
 return {
 	"brenton-leighton/multiple-cursors.nvim",
-	version = "*", -- Use the latest tagged version
-	opts = {},  -- This causes the plugin setup function to be called
-	keys = {
-		{ "<C-e>",         "<Cmd>MultipleCursorsAddDown<CR>",        mode = { "n", "x" },      desc = "Add cursor and move down" },
-		{ "<C-u>",         "<Cmd>MultipleCursorsAddUp<CR>",          mode = { "n", "x" },      desc = "Add cursor and move up" },
-
-		{ "<C-Up>",        "<Cmd>MultipleCursorsAddUp<CR>",          mode = { "n", "i", "x" }, desc = "Add cursor and move up" },
-		{ "<C-Down>",      "<Cmd>MultipleCursorsAddDown<CR>",        mode = { "n", "i", "x" }, desc = "Add cursor and move down" },
-
-		{ "<C-LeftMouse>", "<Cmd>MultipleCursorsMouseAddDelete<CR>", mode = { "n", "i" },      desc = "Add or remove cursor" },
-
-		{ "<Leader>a",     "<Cmd>MultipleCursorsAddMatches<CR>",     mode = { "n", "x" },      desc = "Add cursors to cword" },
-		{
-			"<Leader>A",
-			"<Cmd>MultipleCursorsAddMatchesV<CR>",
-			mode = { "n", "x" },
-			desc = "Add cursors to cword in previous area",
-		},
-
-		{
-			"<Leader>d",
-			"<Cmd>MultipleCursorsAddJumpNextMatch<CR>",
-			mode = { "n", "x" },
-			desc = "Add cursor and jump to next cword",
-		},
-		{ "<Leader>D", "<Cmd>MultipleCursorsJumpNextMatch<CR>", mode = { "n", "x" }, desc = "Jump to next cword" },
-
-		{ "<Leader>l", "<Cmd>MultipleCursorsLock<CR>",          mode = { "n", "x" }, desc = "Lock virtual cursors" },
-	},
+	version = "*",
+	event = "VimEnter", -- 启动时立即加载
+	opts = {},
+	config = function()
+		require("multiple-cursors").setup({})
+		
+		-- 手动设置快捷键
+		local keymap = vim.keymap.set
+		local opts = { noremap = true, silent = true }
+		
+		keymap({ "n", "x" }, "<C-e>", "<Cmd>MultipleCursorsAddDown<CR>", vim.tbl_extend("force", opts, { desc = "Add cursor and move down" }))
+		keymap({ "n", "x" }, "<C-u>", "<Cmd>MultipleCursorsAddUp<CR>", vim.tbl_extend("force", opts, { desc = "Add cursor and move up" }))
+		
+		keymap({ "n", "i", "x" }, "<C-Up>", "<Cmd>MultipleCursorsAddUp<CR>", vim.tbl_extend("force", opts, { desc = "Add cursor and move up" }))
+		keymap({ "n", "i", "x" }, "<C-Down>", "<Cmd>MultipleCursorsAddDown<CR>", vim.tbl_extend("force", opts, { desc = "Add cursor and move down" }))
+		
+		keymap({ "n", "i" }, "<C-LeftMouse>", "<Cmd>MultipleCursorsMouseAddDelete<CR>", vim.tbl_extend("force", opts, { desc = "Add or remove cursor" }))
+		
+		keymap({ "n", "x" }, "<Leader>a", "<Cmd>MultipleCursorsAddMatches<CR>", vim.tbl_extend("force", opts, { desc = "Add cursors to cword" }))
+		keymap({ "n", "x" }, "<Leader>A", "<Cmd>MultipleCursorsAddMatchesV<CR>", vim.tbl_extend("force", opts, { desc = "Add cursors to cword in previous area" }))
+		keymap({ "n", "x" }, "<Leader>d", "<Cmd>MultipleCursorsAddJumpNextMatch<CR>", vim.tbl_extend("force", opts, { desc = "Add cursor and jump to next cword" }))
+		keymap({ "n", "x" }, "<Leader>D", "<Cmd>MultipleCursorsJumpNextMatch<CR>", vim.tbl_extend("force", opts, { desc = "Jump to next cword" }))
+		keymap({ "n", "x" }, "<Leader>l", "<Cmd>MultipleCursorsLock<CR>", vim.tbl_extend("force", opts, { desc = "Lock virtual cursors" }))
+	end,
 }

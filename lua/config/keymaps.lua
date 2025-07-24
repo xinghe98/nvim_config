@@ -102,3 +102,6 @@ vim.cmd([[func! CompileRunGcc()
 		:FloatermNew --autoclose=0 export DEBUG="INFO,ERROR,WARNING"; ts-node %
 	endif
 endfunc]])
+-- 格式化选中代码 (更新快捷键避免冲突)
+keymap("x", "<leader>rf", "<Plug>(coc-format-selected)", { silent = true, desc = "格式化选中代码" })
+keymap("n", "<leader>rf", "<Plug>(coc-format-selected)", { silent = true, desc = "格式化选中代码" })
