@@ -11,6 +11,7 @@ return {
 	keys = function()
 		return {
 			{ "<C-x>", ":Telescope flutter commands<CR>", desc = "flutter" },
+			-- { "<leader>gg", ":Telescope coc diagnostics<CR>" }
 		}
 	end,
 	opts = {
