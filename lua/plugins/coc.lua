@@ -86,7 +86,8 @@ hi CocHighlightText guibg=#696969
 		-- Use `:CocDiagnostics` to get all diagnostics of current buffer in location list
 		keyset("n", "[g", "<Plug>(coc-diagnostic-prev)", { silent = true })
 		keyset("n", "]g", "<Plug>(coc-diagnostic-next)", { silent = true })
-		keyset("n", "ge", ":<C-u>CocList diagnostics<cr>", { silent = true })
+		-- keyset("n", "<leader>gg", ":<C-u>CocList diagnostics<cr>", { silent = true })
+		keyset("n", "<leader>gg", ":Telescope coc diagnostics<CR>", { silent = true })
 
 		-- GoTo code navigation
 		keyset("n", "gd", "<Plug>(coc-definition)", { silent = true })

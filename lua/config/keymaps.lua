@@ -35,6 +35,7 @@ keymap("", "l", "u", opts)
 keymap("", "k", "i", opts)
 keymap("", "K", "I", opts)
 keymap("", "W", "b", opts)
+keymap("n", "<C-k>", "<C-i>", opts)
 
 keymap("n", "<leader>i", "<C-w>l", opts)
 keymap("n", "<leader>u", "<C-w>k", opts)
@@ -70,7 +71,7 @@ keymap("n", "tt", ":NvimTreeFindFileToggle<CR>", opts)
 --lazygit
 keymap("n", "<leader>lg", "<cmd>LazyGit<cr>", opts)
 -- copilot
-keymap("i", "<C-q>", 'copilot#Accept("<CR>")', { script = true, silent = true, expr = true })
+-- keymap("i", "<C-q>", 'copilot#Accept("<CR>")', { script = true, silent = true, expr = true })
 vim.keymap.set("n", "]t", function()
 	require("todo-comments").jump_next()
 end, { desc = "Next todo comment" })
