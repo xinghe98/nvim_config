@@ -6,7 +6,7 @@ return {
 	config = function()
 		require 'nvim-treesitter.configs'.setup {
 			ignore_install = { "help" },
-			ensure_installed = { "vim", "vimdoc", "go", "python", "typescript", "query", "c", "vim", "html", "vue", "lua", "dart", "markdown", "markdown_inline", },
+			ensure_installed = { "vim", "vimdoc", "go", "python", "typescript", "query", "c", "vim", "html", "vue", "lua", "dart", "markdown", "markdown_inline", "tsx", "javascript" },
 			highlight = {
 				enable = true,
 			},
