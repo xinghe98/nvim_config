@@ -110,7 +110,12 @@
 	"diagnostic.enableMessage": "jump",
 	"session.saveOnVimLeave": false,
 	"list.previewHighlightGroup": "Statement",
-	"list.source.files.excludePatterns": ["target/.*", "**/.git/**", "**/node_modules/**", "dist"],
+	"list.source.files.excludePatterns": [
+		"target/.*",
+		"**/.git/**",
+		"**/node_modules/**",
+		"dist"
+	],
 	"list.nextKeymap": "<tab>",
 	"list.previousKeymap": "<S-tab>",
 	"list.normalMappings": {
@@ -152,7 +157,8 @@
 	"javascript.suggest.names": true,
 	"javascript.suggestionActions.enabled": true,
 	"json.format.enable": true,
-	"prettier.printWidth": 100,
+	"prettier.printWidth": 80,
+	"prettier.tabWidth": 2,
 	"prettier.disableLanguages": [],
 	"prettier.formatterPriority": 1,
 	"prettier.useTabs": true,
