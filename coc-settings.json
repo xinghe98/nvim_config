@@ -190,7 +190,6 @@
 			"rootPatterns": ["go.mod"],
 			"filetypes": ["go"],
 			"initializationOptions": {
-				"semanticTokens": true,
 				"hints": {
 					"assignVariableTypes": true,
 					"compositeLiteralFields": true,
