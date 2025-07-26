@@ -35,10 +35,10 @@ return {
 	},
 	keys = {
 		-- Top Pickers & Explorer
-		{ "<leader>sm", function() Snacks.picker.smart() end,         desc = "Smart Find Files" },
-		{ "<leader>fb", function() Snacks.picker.buffers() end,       desc = "Buffers" },
-		{ "<C-g>",      function() Snacks.picker.grep() end,          desc = "Grep" },
-		{ "<C-f>",      function() Snacks.picker.files() end,         desc = "Find Files" },
-		{ "<leader>ft", function() Snacks.picker.todo_comments() end, desc = "Todo" },
+		{ "<leader>sm", function() Snacks.picker.smart() end, desc = "智能查找" },
+		{ "<leader>fb", function() Snacks.picker.buffers() end, desc = "查找缓冲区" },
+		{ "<C-g>", function() Snacks.picker.grep() end, desc = "Grep" },
+		{ "<C-f>", function() Snacks.picker.files() end, desc = "Find Files" },
+		{ "<leader>ft", function() Snacks.picker.todo_comments() end, desc = "查找TODO" },
 	}
 }
