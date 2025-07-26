@@ -49,6 +49,7 @@ vim.g.coc_global_extensions = {
 	"coc-emoji",
 	"coc-tsserver",
 	"@yaegassy/coc-volar",
+	"@yaegassy/coc-tailwindcss3",
 	"coc-emmet",
 	"coc-yaml",
 	"coc-yank",
