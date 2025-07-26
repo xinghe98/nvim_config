@@ -12,9 +12,10 @@
 
 if not vim.g.vscode then
 	require("config.lazy")
-	require("config.options")
-	vim.cmd([[colorscheme gruvbox-material]])
+	-- vim.cmd([[colorscheme gruvbox-material]])
+	vim.cmd([[colorscheme everforest]])
 	require("config.autocmd")
+	require("config.options")
 end
 -- 主要配置
 require("config.markdown")

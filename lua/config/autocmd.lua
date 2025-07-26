@@ -42,8 +42,9 @@ vim.api.nvim_create_autocmd("User", {
 vim.api.nvim_create_autocmd("ColorScheme", {
 	pattern = "*", -- 对所有主题生效
 	callback = function()
-		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
+		vim.api.nvim_set_hl(0, "NormalFloat", { ctermbg = "NONE" })
 		vim.api.nvim_set_hl(0, "FloatBorder", { bg = "NONE" })
+		vim.api.nvim_set_hl(0, "WhichKeyFloat", { bg = "NONE" })
 	end,
 })
 -- ~/.config/nvim/lua/config/autocmds.lua

@@ -1,5 +1,4 @@
 {
-  "action-hints.nvim": { "branch": "main", "commit": "ab10fef255dd4bc933c92d8f9969828f2f856e71" },
   "bufferline.nvim": { "branch": "main", "commit": "655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3" },
   "bullets.vim": { "branch": "master", "commit": "1c13e510e11d08b0259e8e627f128359c5521962" },
   "coc.nvim": { "branch": "release", "commit": "db42f7a30a9cd71d9361b9909276bcf9022a6fff" },
@@ -40,6 +39,6 @@
   "vim-surround": { "branch": "master", "commit": "aeb933272e72617f7c4d35e1f003be16836b948d" },
   "vim-table-mode": { "branch": "master", "commit": "e4365bde024f73e205eefa2fb78e3029ddb92ea9" },
   "vim-translator": { "branch": "master", "commit": "6f0639c6d471a3a90ac19db96e1e379c030f74e3" },
-  "vista.vim": { "branch": "master", "commit": "1e90efad6e32c4f7d16b1ca8f49bf63d0693802e" },
+  "which-key.nvim": { "branch": "main", "commit": "370ec46f710e058c9c1646273e6b225acf47cbed" },
   "windsurf.nvim": { "branch": "main", "commit": "821b570b526dbb05b57aa4ded578b709a704a38a" }
 }
