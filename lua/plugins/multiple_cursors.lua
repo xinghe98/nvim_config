@@ -1,7 +1,6 @@
 return {
 	"brenton-leighton/multiple-cursors.nvim",
 	version = "*",
-	event = "VimEnter", -- 启动时立即加载
 	opts = {},
 	config = function()
 		require("multiple-cursors").setup({})
@@ -10,10 +9,10 @@ return {
 		local keymap = vim.keymap.set
 		local opts = { noremap = true, silent = true }
 
-		keymap({ "n", "x" }, "<C-e>", "<Cmd>MultipleCursorsAddDown<CR>",
-			vim.tbl_extend("force", opts, { desc = "Add cursor and move down" }))
-		keymap({ "n", "x" }, "<C-u>", "<Cmd>MultipleCursorsAddUp<CR>",
-			vim.tbl_extend("force", opts, { desc = "Add cursor and move up" }))
+		-- keymap({ "n", "x" }, "<C-e>", "<Cmd>MultipleCursorsAddDown<CR>",
+		-- 	vim.tbl_extend("force", opts, { desc = "Add cursor and move down" }))
+		-- keymap({ "n", "x" }, "<C-u>", "<Cmd>MultipleCursorsAddUp<CR>",
+		-- 	vim.tbl_extend("force", opts, { desc = "Add cursor and move up" }))
 
 		keymap({ "n", "i", "x" }, "<C-Up>", "<Cmd>MultipleCursorsAddUp<CR>",
 			vim.tbl_extend("force", opts, { desc = "Add cursor and move up" }))
