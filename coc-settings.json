@@ -28,7 +28,7 @@
 		"border": true,
 		"rounded": true,
 		"highlight": "CocFloating",
-		"focusable": false,
+		"focusable": true,
 		"title": "🔐"
 	},
 	"hover.previewMaxHeight": 8,
