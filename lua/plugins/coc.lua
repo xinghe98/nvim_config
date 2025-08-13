@@ -88,6 +88,7 @@ return {
 		keyset("n", "]g", "<Plug>(coc-diagnostic-next)", { silent = true, desc = "下一个诊断" })
 		-- keyset("n", "<leader>gg", ":<C-u>CocList diagnostics<cr>", { silent = true })
 		keyset("n", "<leader>gg", ":Telescope coc diagnostics<CR>", { silent = true, desc = "诊断" })
+		keyset("n", "<leader>gG", ":CocList diagnostics<CR>", { silent = true, desc = "工作区诊断" })
 
 		-- GoTo code navigation
 		keyset("n", "gd", "<Plug>(coc-definition)", { silent = true, desc = "跳转到定义" })
