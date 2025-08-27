@@ -97,7 +97,7 @@ return {
 		keyset("n", "gr", "<cmd>Telescope coc references<CR>", { silent = true, desc = "跳转到引用" })
 		-- keyset("n", "gr", "<Plug>(coc-references)", { silent = true })
 		-- keyset("n", "gi", "<Plug>(coc-implementation)", { silent = true })
-		keyset("n", "<C-c>", ":<C-u>CocList commands<cr>", { silent = true })
+		keyset("n", "<C-c>", ":<C-u>CocList<cr>", { silent = true })
 		-- keyset("n", "<C-x>", "<cmd>CocList --input=flutter. commands<CR>", opts)
 
 
