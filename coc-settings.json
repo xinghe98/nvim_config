@@ -206,19 +206,6 @@
 					"rangeVariableTypes": true
 				}
 			}
-		},
-		"dart": {
-			"command": "dart",
-			"args": ["language-server", "--protocol=lsp"],
-			"filetypes": ["dart"],
-			"initializationOptions": {
-				"onlyAnalyzeProjectsWithOpenFiles": true,
-				"suggestFromUnimportedLibraries": true
-			},
-			"settings": {
-				"dart.completeFunctionCalls": true,
-				"dart.showTodos": true
-			}
 		}
 	},
 	"coc.source.around.shortcut": "AR",
