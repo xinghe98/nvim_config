@@ -45,7 +45,7 @@ return {
 			closing_tags = {
 				highlight = "Comment", -- highlight for the closing tag
 				prefix = "//", -- character to use for close tag e.g. > Widget
-				enabled = true, -- set to false to disable
+				enabled = false, -- set to false to disable
 			},
 			dev_log = {
 				enabled = false,
