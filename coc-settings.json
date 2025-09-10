@@ -211,7 +211,7 @@
 	"coc.source.around.shortcut": "AR",
 	"coc.source.word.shortcut": "WD",
 	"coc.source.around.priority": 50,
-	"coc.source.word.priority": 50,
+	"coc.source.word.priority": 49,
 	"coc.source.emoji.priority": 49,
 	"snippets.priority": 51,
 	"coc.source.emoji.shortcut": "EO",
