@@ -95,7 +95,7 @@ return {
 		keyset("n", "gy", "<Plug>(coc-type-definition)", { silent = true, desc = "跳转到类型定义" })
 		keyset("n", "gi", "<cmd>Telescope coc implementations<CR>", { silent = true, desc = "跳转到实现" })
 		keyset("n", "gr", "<cmd>Telescope coc references<CR>", { silent = true, desc = "跳转到引用" })
-		-- keyset("n", "gr", "<Plug>(coc-references)", { silent = true })
+		-- keyset("n", "gr", "<Plug>(coc-references)", { silent = true, desc = "跳转到引用" })
 		-- keyset("n", "gi", "<Plug>(coc-implementation)", { silent = true })
 		keyset("n", "<C-c>", ":<C-u>CocList<cr>", { silent = true })
 		-- keyset("n", "<C-x>", "<cmd>CocList --input=flutter. commands<CR>", opts)
