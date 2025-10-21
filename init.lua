@@ -24,7 +24,6 @@ require("config.keymaps")
 
 vim.g.coc_global_extensions = {
 	"coc-marketplace",
-	"coc-word",
 	"coc-css",
 	"coc-highlight",
 	"coc-sumneko-lua",
@@ -45,7 +44,7 @@ vim.g.coc_global_extensions = {
 	"coc-snippets",
 	"https://github.com/rafamadriz/friendly-snippets@main",
 	-- "coc-syntax",
-	"coc-word",
+	-- "coc-word",
 	"coc-emoji",
 	"coc-tsserver",
 	"@yaegassy/coc-volar",
