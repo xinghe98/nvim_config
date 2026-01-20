@@ -1,3 +1,8 @@
+-- Options are automatically loaded before lazy.nvim startup
+-- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
+-- Add any additional options here
+--
+
 local set = vim.opt
 set.modifiable = true
 set.number = true
@@ -6,7 +11,7 @@ set.cursorline = true
 set.cursorcolumn = true
 -- 可以拆行
 set.wrap = true
-vim.opt.fileformat = "unix"
+set.fileformat = unix
 set.cindent = true
 set.tabstop = 4
 set.shiftwidth = 4
@@ -18,7 +23,6 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 set.matchtime = 5
 set.ignorecase = true
-set.smartcase = true
 set.incsearch = true
 set.hlsearch = true
 set.expandtab = false
@@ -40,24 +44,20 @@ vim.opt.signcolumn = "yes"
 vim.o.foldmethod = "indent"
 vim.o.foldenable = false
 vim.o.foldlevel = 99
-vim.opt.backup = false
-vim.opt.writebackup = false
-
--- Having longer updatetime (default is 4000 ms = 4s) leads to noticeable
--- delays and poor user experience
-vim.opt.updatetime = 100
-vim.g.pumblend = 0
-vim.g.winblend = 0
-
--- Always show the signcolumn, otherwise it would shift the text each time
--- diagnostics appeared/became resolved
-vim.opt.signcolumn = "yes"
-vim.notify = require("notify")
-vim.g.translator_default_engines = { "haici", "google" }
 vim.opt.clipboard = "unnamedplus"
+-- rendermarkdown
+vim.opt.conceallevel = 0
+if vim.fn.has("wsl") == 1 then
+	vim.api.nvim_create_autocmd("TextYankPost", {
 
-vim.diagnostic.config({
-	virtual_text = {
-		prefix = "😥",
-	},
-})
+		group = vim.api.nvim_create_augroup("Yank", { clear = true }),
+
+		callback = function()
+			vim.fn.system("clip.exe", vim.fn.getreg('"'))
+		end,
+	})
+end
+vim.opt.pumblend = 0
+vim.opt.winblend = 0
+-- translate
+vim.g.translator_target_lang = "zh"

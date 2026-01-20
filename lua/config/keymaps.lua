@@ -72,6 +72,19 @@ keymap("n", "tt", ":NvimTreeFindFileToggle<CR>", vim.tbl_extend("force", opts, {
 keymap("n", "<leader>lg", "<cmd>LazyGit<cr>", vim.tbl_extend("force", opts, { desc = "打开lazygit" }))
 -- copilot
 -- keymap("i", "<C-q>", 'copilot#Accept("<CR>")', { script = true, silent = true, expr = true })
+--
+
+--- CodeCompanion
+-- 切换 AI 对话窗口
+keymap("n", "<leader>aa", "<cmd>CodeCompanionChat Toggle<cr>", opts)
+-- 针对选中文本输入 AI 指令
+keymap("v", "<leader>aa", ":CodeCompanion ", { noremap = true, silent = false })
+-- 打开 AI 操作面板
+keymap("n", "<leader>ac", "<cmd>CodeCompanionActions<cr>", opts)
+-- 生成中文 Git 提交信息
+vim.keymap.set("n", "<leader>am", function()
+	vim.cmd("CodeCompanion Commit Message (CN)")
+end, { buffer = true, desc = "AI 生成中文 Commit Message" })
 vim.keymap.set("n", "]t", function()
 	require("todo-comments").jump_next()
 end, { desc = "下一个todo" })
