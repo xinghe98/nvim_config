@@ -105,6 +105,7 @@ return {
 				},
 			},
 			lualine_y = {
+				require("codecompanion._extensions.spinner.styles.lualine").get_lualine_component(),
 				"branch",
 				"filetype",
 				"progress",
