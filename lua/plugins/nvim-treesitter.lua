@@ -3,13 +3,14 @@ return {
 	lazy = false,
 	build = ":TSUpdate",
 	config = function()
-		require 'nvim-treesitter.configs'.setup {
-			ignore_install = { "help" },
+		local configs = require("nvim-treesitter")
+
+		configs.setup({
 			ensure_installed = { "vim", "vimdoc", "go", "python", "typescript", "query", "c", "vim", "html", "vue", "lua", "dart", "markdown", "markdown_inline", "tsx", "javascript" },
-			highlight = {
-				enable = true,
-			},
-		}
+			sync_install = false,
+			highlight = { enable = true },
+			indent = { enable = true },
+		})
 		-- 确保语法高亮开启
 		vim.cmd("syntax enable")
 	end
