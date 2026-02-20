@@ -6,9 +6,12 @@ return {
 		local configs = require("nvim-treesitter")
 
 		configs.setup({
-			ensure_installed = { "vim", "vimdoc", "go", "python", "typescript", "query", "c", "vim", "html", "vue", "lua", "dart", "markdown", "markdown_inline", "tsx", "javascript" },
+			ensure_installed = { "vim", "vimdoc", "go", "python", "typescript", "query", "c", "vim", "html", "css", "vue", "lua", "dart", "markdown", "markdown_inline", "tsx", "javascript" },
 			sync_install = false,
-			highlight = { enable = true },
+			highlight = {
+				enable = true,
+				additional_vim_regex_highlighting = false,
+			},
 			indent = { enable = true },
 		})
 		-- 确保语法高亮开启

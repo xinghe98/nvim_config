@@ -1,7 +1,6 @@
 return {
 	-- { "xiyaowong/nvim-cursorword",   lazy = false },
 	{ "nvim-tree/nvim-web-devicons", lazy = true },
-
 	{ "voldikss/vim-translator",     event = "BufEnter" },
 	{
 		"tpope/vim-surround",
