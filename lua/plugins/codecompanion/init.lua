@@ -1,0 +1,22 @@
+return {
+	"olimorris/codecompanion.nvim",
+	-- dir = "/Users/xinghe/Documents/codecompanion.nvim",
+	dependencies = {
+		"lalitmee/codecompanion-spinners.nvim",
+		"j-hui/fidget.nvim",
+		"xinghe98/codecompanion-model-selector.nvim",
+	},
+	init = function()
+		require("plugins.codecompanion.keymaps")
+	end,
+	opts = {
+		-- completion_provder = "coc",
+		extensions = require("plugins.codecompanion.extensions"),
+		language = "zh-CN",
+		strategies = require("plugins.codecompanion.strategies"),
+		prompt_library = require("plugins.codecompanion.prompts"),
+		opts = {
+			log_level = "DEBUG", -- TRACE|DEBUG|ERROR|INFO
+		},
+	},
+}
