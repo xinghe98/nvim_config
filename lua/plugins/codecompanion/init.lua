@@ -10,13 +10,13 @@ return {
 		require("plugins.codecompanion.keymaps")
 	end,
 	opts = {
-		-- completion_provder = "coc",
 		extensions = require("plugins.codecompanion.extensions"),
 		language = "zh-CN",
 		strategies = require("plugins.codecompanion.strategies"),
 		prompt_library = require("plugins.codecompanion.prompts"),
-		opts = {
-			log_level = "DEBUG", -- TRACE|DEBUG|ERROR|INFO
-		},
-	},
+		-- opts = {
+		-- 	log_level = "DEBUG", -- TRACE|DEBUG|ERROR|INFO
+		-- },
+	}
+	,
 }
