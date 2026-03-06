@@ -68,6 +68,8 @@ local colors = {
 	grey   = "#303030",
 	dark   = "#1c1c1c",
 	none   = "NONE",
+	green  = "#b8e994",
+	yellow = "#f9ca24",
 }
 
 local theme = {
@@ -109,14 +111,14 @@ return {
 
 			-- ② Branch + diff
 			lualine_b = {
-				{ "branch", icon = "" },
+				{ "branch", icon = { "", color = { fg = colors.violet } } },
 				{
 					"diff",
-					symbols = { added = " ", modified = " ", removed = " " },
+					symbols = { added = " ", modified = " ", removed = " " },
 					diff_color = {
-						added = { fg = colors.green },
+						added    = { fg = colors.green },
 						modified = { fg = colors.yellow },
-						removed = { fg = colors.red },
+						removed  = { fg = colors.red },
 					},
 				},
 			},
@@ -131,7 +133,7 @@ return {
 				{
 					"diagnostics",
 					sources = { "nvim_diagnostic", "coc" },
-					symbols = { error = " ", warn = " ", info = " ", hint = "󰌵 " },
+					symbols = { error = " ", warn = " ", info = " " },
 				},
 			},
 
