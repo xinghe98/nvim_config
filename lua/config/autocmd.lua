@@ -45,6 +45,8 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 		vim.api.nvim_set_hl(0, "NormalFloat", { ctermbg = "NONE" })
 		vim.api.nvim_set_hl(0, "FloatBorder", { bg = "NONE" })
 		vim.api.nvim_set_hl(0, "WhichKeyFloat", { bg = "NONE" })
+		-- 强制清除原生状态栏的背景
+		-- vim.api.nvim_set_hl(0, "StatusLine", { bg = "NONE", fg = "NONE", border = "NONE" })
 	end,
 })
 -- ~/.config/nvim/lua/config/autocmds.lua
