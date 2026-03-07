@@ -59,35 +59,59 @@ local comp_cc_spinner =
 -- ── Theme ──────────────────────────────────────────────────────────────
 
 local colors = {
-	blue   = "#80a0ff",
-	cyan   = "#79dac8",
-	black  = "#080808",
-	white  = "#c6c6c6",
-	red    = "#ff5189",
-	violet = "#d183e8",
-	grey   = "#303030",
-	dark   = "#1c1c1c",
-	none   = "NONE",
-	green  = "#b8e994",
-	yellow = "#f9ca24",
+	blue    = "#80a0ff",
+	cyan    = "#79dac8",
+	black   = "#080808",
+	white   = "#c6c6c6",
+	red     = "#ff5189",
+	violet  = "#d183e8",
+	grey    = "#303030",
+	dark    = "#1c1c1c",
+	none    = "NONE",
+	green   = "#b8e994",
+	yellow  = "#f9ca24",
+	orange  = "#e8b86d",
+	magenta = "#ff79c6",
+	teal    = "#69d3c4",
+	gold    = "#ffd700",
 }
 
-local theme = {
-	normal   = {
-		a = { fg = colors.black, bg = colors.violet, gui = "bold" },
-		b = { fg = colors.white, bg = colors.grey },
-		c = { fg = colors.white, bg = colors.none },
-	},
-	insert   = { a = { fg = colors.black, bg = colors.cyan, gui = "bold" } },
-	visual   = { a = { fg = colors.black, bg = colors.blue, gui = "bold" } },
-	replace  = { a = { fg = colors.black, bg = colors.red, gui = "bold" } },
-	command  = { a = { fg = colors.black, bg = "#e8b86d", gui = "bold" } },
-	inactive = {
-		a = { fg = colors.grey, bg = colors.none },
-		b = { fg = colors.grey, bg = colors.none },
-		c = { fg = colors.grey, bg = colors.none },
-	},
-}
+local function custom_theme()
+	return {
+		normal = {
+			a = { fg = colors.black, bg = colors.violet, gui = "bold" },
+			b = { fg = colors.white, bg = colors.grey },
+			c = { fg = colors.white, bg = colors.none },
+		},
+		insert = {
+			a = { fg = colors.black, bg = colors.cyan, gui = "bold" },
+			b = { fg = colors.black, bg = colors.dark },
+			c = { fg = colors.white, bg = colors.none },
+		},
+		visual = {
+			a = { fg = colors.black, bg = colors.blue, gui = "bold" },
+			b = { fg = colors.black, bg = colors.dark },
+			c = { fg = colors.white, bg = colors.none },
+		},
+		replace = {
+			a = { fg = colors.black, bg = colors.red, gui = "bold" },
+			b = { fg = colors.black, bg = colors.dark },
+			c = { fg = colors.white, bg = colors.none },
+		},
+		command = {
+			a = { fg = colors.black, bg = colors.orange, gui = "bold" },
+			b = { fg = colors.black, bg = colors.dark },
+			c = { fg = colors.white, bg = colors.none },
+		},
+		inactive = {
+			a = { fg = colors.grey, bg = colors.none },
+			b = { fg = colors.grey, bg = colors.none },
+			c = { fg = colors.grey, bg = colors.none },
+		},
+	}
+end
+
+local theme = custom_theme()
 
 -- ── Plugin spec ────────────────────────────────────────────────────────
 
@@ -100,25 +124,78 @@ return {
 			theme                = theme,
 			globalstatus         = true,
 			component_separators = { left = "", right = "" },
-			section_separators   = { left = "", right = "" },
+			section_separators   = { left = "", right = "" },
 			disabled_filetypes   = { statusline = { "dashboard", "alpha", "starter" } },
+			always_divide_middle = true,
+			padding              = { left = 1, right = 1 },
 		},
 		sections          = {
 			-- ① Mode pill
 			lualine_a = {
-				{ "mode", separator = { left = "" }, right_padding = 2 },
+				{
+					"mode",
+					separator = { left = "", right = "" },
+					right_padding = 2,
+					fmt = function(mode_name)
+						local mode_map = {
+							n     = "NORMAL",
+							no    = "OP-PEND",
+							nov   = "OP-VIS",
+							noV   = "OP-LIN",
+							ni    = "NORMAL",
+							nt    = "TERM",
+							ntT   = "TERM",
+							v     = "VISUAL",
+							vs    = "VISUAL",
+							V     = "V-LINE",
+							Vs    = "V-LINE",
+							s     = "SELECT",
+							S     = "S-LINE",
+							i     = "INSERT",
+							ic    = "INSERT",
+							ix    = "INSERT",
+							t     = "TERM",
+							R     = "REPLACE",
+							Rc    = "REPLACE",
+							Rx    = "REPLACE",
+							Rv    = "V-REPLACE",
+							r     = "PENDING",
+							rm    = "MORE",
+							rQ    = "CONFIRM",
+							["!"] = "SHELL",
+						}
+						local display_mode = mode_map[mode_name] or mode_name
+						local icon = {
+							n = "󰣭",
+							i = "󰏫",
+							v = "󰈔",
+							V = "󰈊",
+							t = "󱊦",
+							R = "󱎕",
+						}
+						return (icon[mode_name] or "") .. " " .. display_mode
+					end,
+				},
 			},
 
 			-- ② Branch + diff
 			lualine_b = {
-				{ "branch", icon = { "", color = { fg = colors.violet } } },
+				{
+					"branch",
+					icon = { " ", color = { fg = colors.violet } },
+					colored = true,
+				},
 				{
 					"diff",
-					symbols = { added = " ", modified = " ", removed = " " },
+					symbols = {
+						added    = " 󰸋 ",
+						modified = " 󰛿 ",
+						removed  = " 󰍷 ",
+					},
 					diff_color = {
-						added    = { fg = colors.green },
-						modified = { fg = colors.yellow },
-						removed  = { fg = colors.red },
+						added    = { fg = colors.green, gui = "bold" },
+						modified = { fg = colors.yellow, gui = "bold" },
+						removed  = { fg = colors.red, gui = "bold" },
 					},
 				},
 			},
@@ -128,12 +205,36 @@ return {
 				{
 					"filename",
 					path = 1,
-					symbols = { modified = "  ", readonly = "  ", unnamed = "  " },
+					symbols = {
+						modified  = " 󰷮 ",
+						readonly  = " 󰌾 ",
+						unnamed   = " 󰈙 ",
+						exclusive = " 󰈔 ",
+					},
+					color = function()
+						if vim.bo.modified then
+							return { fg = colors.yellow, gui = "bold" }
+						elseif vim.bo.readonly then
+							return { fg = colors.red, gui = "bold" }
+						end
+						return {}
+					end,
 				},
 				{
 					"diagnostics",
 					sources = { "nvim_diagnostic", "coc" },
-					symbols = { error = " ", warn = " ", info = " " },
+					symbols = {
+						error = " 󰅙 ",
+						warn  = " 󰀦 ",
+						info  = " 󰋼 ",
+						hint  = " 󰌶 ",
+					},
+					diagnostics_color = {
+						error = { fg = colors.red, gui = "bold" },
+						warn  = { fg = colors.orange },
+						info  = { fg = colors.cyan },
+						hint  = { fg = colors.violet },
+					},
 				},
 			},
 
@@ -143,14 +244,32 @@ return {
 				comp_ai_model,
 				comp_codeium,
 				comp_flutter_device,
-				{ "g:coc_status", icon = "󰿘", color = { gui = "italic" } },
+				{
+					"g:coc_status",
+					icon = " 󰿘",
+					color = { fg = colors.gold, gui = "italic" },
+				},
 			},
 
 			-- ⑤ Filetype pill
 			lualine_y = {},
 
 			lualine_z = {
-				{ "filetype", separator = { right = "" }, left_padding = 2 },
+				{
+					"filetype",
+					separator = { right = "", left = "" },
+					left_padding = 2,
+					color = { gui = "bold" },
+					icon_only = true,
+				},
+				{
+					function()
+						local line = vim.fn.line(".")
+						local col = vim.fn.col(".")
+						return string.format(" 󰁮 %d:%d ", line, col)
+					end,
+					color = { fg = colors.grey },
+				},
 			},
 		},
 		inactive_sections = {

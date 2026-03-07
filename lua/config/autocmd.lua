@@ -64,3 +64,13 @@ vim.api.nvim_create_autocmd('BufReadPost', {
 		end
 	end,
 })
+
+--coc diagnostic bufferline
+vim.api.nvim_create_augroup("CocDiagnosticRefresh", { clear = true })
+vim.api.nvim_create_autocmd("User", {
+	group = "CocDiagnosticRefresh",
+	pattern = "CocDiagnosticChange",
+	callback = function()
+		pcall(require("bufferline").refresh)
+	end,
+})
