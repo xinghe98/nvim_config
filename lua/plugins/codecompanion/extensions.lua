@@ -26,11 +26,14 @@ return {
 						api_key = "cmd:echo $YUNWU_KEY",
 						chat_url = "/v1/chat/completions",
 					},
-					default = "claude-sonnet-4-6",
+					default = "MiniMax-M2.5",
 					choices = {
 						"claude-sonnet-4-6",
 						"claude-opus-4-6-thinking",
 						"gemini-3-pro-preview",
+						"gpt-5.3-codex",
+						"MiniMax-M2.5",
+						"glm-5"
 					},
 				},
 				deepseek = {
