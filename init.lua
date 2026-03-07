@@ -20,8 +20,6 @@ end
 require("config.markdown")
 require("config.keymaps")
 
-
-
 vim.g.coc_global_extensions = {
 	"coc-marketplace",
 	"coc-css",

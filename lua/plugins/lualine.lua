@@ -80,33 +80,54 @@ local function custom_theme()
 	return {
 		normal = {
 			a = { fg = colors.black, bg = colors.violet, gui = "bold" },
-			b = { fg = colors.white, bg = colors.grey },
-			c = { fg = colors.white, bg = colors.editor_bg }, -- 魔法在此：伪装成透明
-			x = { fg = colors.white, bg = colors.editor_bg }, -- 让 AI 工具也悬浮在背景上
-			y = { fg = colors.white, bg = colors.grey },
+			b = { fg = colors.white, bg = "NONE" }, -- 关键：抽干地毯
+			c = { fg = colors.white, bg = "NONE" }, -- 关键：抽干地毯
+			x = { fg = colors.white, bg = "NONE" },
+			y = { fg = colors.white, bg = "NONE" },
 			z = { fg = colors.black, bg = colors.violet, gui = "bold" },
 		},
 		insert = {
 			a = { fg = colors.black, bg = colors.cyan, gui = "bold" },
-			b = { fg = colors.black, bg = colors.dark },
-			c = { fg = colors.white, bg = colors.editor_bg },
-			x = { fg = colors.white, bg = colors.editor_bg },
+			b = { fg = colors.white, bg = colors.dark },
+			c = { fg = colors.white, bg = "NONE" },
+			x = { fg = colors.white, bg = "NONE" },
 			y = { fg = colors.white, bg = colors.grey },
 			z = { fg = colors.black, bg = colors.cyan, gui = "bold" },
 		},
 		visual = {
 			a = { fg = colors.black, bg = colors.blue, gui = "bold" },
-			b = { fg = colors.black, bg = colors.dark },
-			c = { fg = colors.white, bg = colors.editor_bg },
-			x = { fg = colors.white, bg = colors.editor_bg },
+			b = { fg = colors.white, bg = colors.dark },
+			c = { fg = colors.white, bg = "NONE" },
+			x = { fg = colors.white, bg = "NONE" },
 			y = { fg = colors.white, bg = colors.grey },
 			z = { fg = colors.black, bg = colors.blue, gui = "bold" },
 		},
-		-- replace, command, inactive 同理，把 c 和 x 的 bg 改为 colors.editor_bg
-		-- ...
+		replace = {
+			a = { fg = colors.black, bg = colors.red, gui = "bold" },
+			b = { fg = colors.black, bg = colors.dark },
+			c = { fg = colors.white, bg = "NONE" },
+			x = { fg = colors.white, bg = "NONE" },
+			y = { fg = colors.white, bg = colors.grey },
+			z = { fg = colors.black, bg = colors.red, gui = "bold" },
+		},
+		command = {
+			a = { fg = colors.black, bg = colors.orange, gui = "bold" },
+			b = { fg = colors.white, bg = colors.dark },
+			c = { fg = colors.white, bg = "NONE" },
+			x = { fg = colors.white, bg = "NONE" },
+			y = { fg = colors.white, bg = colors.grey },
+			z = { fg = colors.black, bg = colors.orange, gui = "bold" },
+		},
+		inactive = {
+			a = { fg = colors.grey, bg = colors.dark },
+			b = { fg = colors.grey, bg = colors.dark },
+			c = { fg = colors.grey, bg = "NONE" },
+			x = { fg = colors.grey, bg = "NONE" },
+			y = { fg = colors.grey, bg = colors.dark },
+			z = { fg = colors.grey, bg = colors.dark },
+		},
 	}
 end
-
 local theme = custom_theme()
 
 -- ── Plugin spec ────────────────────────────────────────────────────────
@@ -180,6 +201,10 @@ return {
 					"branch",
 					icon = { "", color = { fg = colors.violet } },
 					colored = true,
+					-- 魔法 1：强制给这个组件穿上灰色背景
+					color = { bg = colors.grey },
+					-- 魔法 2：强行切割出左右两端的平行四边形切角
+					separator = { left = '', right = '' },
 				},
 				{
 					"diff",
@@ -193,9 +218,11 @@ return {
 						modified = { fg = colors.yellow, gui = "bold" },
 						removed  = { fg = colors.red, gui = "bold" },
 					},
+					-- 同样给 diff 穿上灰色衣服和切角
+					color = { bg = colors.grey },
+					separator = { left = '', right = '' },
 				},
 			},
-
 			-- ③ Filename + diagnostics
 			lualine_c = {
 				{
