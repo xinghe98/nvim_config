@@ -14,9 +14,7 @@ return {
 					default = "minimax/minimax-m2.5",
 					choices = {
 						"minimax/minimax-m2.5",
-						"claude-3.5-sonnet",
-						"claude-3.7-sonnet",
-						"claude-3.7-sonnet-thought",
+						"openai/gpt-5.3-codex",
 					},
 				},
 				yunwu = {

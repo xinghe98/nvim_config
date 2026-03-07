@@ -1,8 +1,54 @@
--- ╭─────────────────────────────────────────────────────────╮
--- │                      Lualine Config                      │
--- ╰─────────────────────────────────────────────────────────╯
+-- 声明一个变量用于缓存当前 buffer 的 LSP 名称
+local b_coc_lsp_name = ""
+local b_coc_lsp_loading = false
 
--- ── Components ────────────────────────────────────────────────────────
+-- 创建一个函数异步获取并更新缓存
+local function update_coc_lsp_name()
+	-- 如果 coc 服务还没初始化，直接跳过
+	if vim.g.coc_service_initialized ~= 1 then return end
+
+	local current_ft = vim.bo.filetype
+
+	-- 标记为加载中
+	b_coc_lsp_loading = true
+
+	-- 异步获取 coc 所有的服务状态，避免阻塞主线程
+	vim.fn.CocActionAsync('services', function(err, res)
+		-- 标记加载完成
+		b_coc_lsp_loading = false
+
+		if res == vim.NIL or type(res) ~= "table" then return end
+
+		local active_lsps = {}
+		for _, lsp in ipairs(res) do
+			-- 筛选出状态为 running 的服务
+			if lsp.state == "running" then
+				-- 检查该 LSP 支持的语言中是否包含当前 buffer 的 filetype
+				if type(lsp.languageIds) == "table" then
+					for _, lang in ipairs(lsp.languageIds) do
+						if lang == current_ft then
+							table.insert(active_lsps, lsp.id)
+							break
+						end
+					end
+				end
+			end
+		end
+
+		-- 将结果格式化并缓存
+		if #active_lsps > 0 then
+			b_coc_lsp_name = table.concat(active_lsps, ", ")
+		else
+			b_coc_lsp_name = ""
+		end
+	end)
+end
+
+-- 注册自动命令：在进入 buffer 或者光标停留时触发更新
+vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
+	pattern = "*",
+	callback = update_coc_lsp_name,
+})
 
 local comp_flutter_device = {
 	function()
@@ -48,7 +94,12 @@ local comp_codeium = {
 }
 
 local ok_ms, ms = pcall(require, "cc_model_selector")
-local comp_ai_model = ok_ms and ms.get_lualine_component() or {
+local comp_ai_model = ok_ms and ms.get_lualine_component(
+	{
+		icon = "🤖",
+		color = { fg = "#a9b665", gui = "bold" },
+	}
+) or {
 	function() return "" end,
 	cond = function() return false end,
 }
@@ -144,7 +195,7 @@ return {
 			section_separators   = { left = '', right = '' },
 			disabled_filetypes   = { statusline = { "dashboard", "alpha", "starter" } },
 			always_divide_middle = true,
-			padding              = { left = 1, right = 1 },
+			padding              = { left = 1, right = 0 },
 		},
 		sections          = {
 			-- ① Mode pill
@@ -210,7 +261,7 @@ return {
 					"diff",
 					symbols = {
 						added    = "󰸋 ",
-						modified = "󰛿",
+						modified = "󰛿 ",
 						removed  = "󰍷 ",
 					},
 					diff_color = {
@@ -268,10 +319,12 @@ return {
 				comp_codeium,
 				comp_flutter_device,
 				{
-					"g:coc_status",
+					function() return vim.g.coc_status or "" end,
+					cond = function() return vim.g.coc_status ~= nil and vim.g.coc_status ~= "" end,
 					icon = "󰿘",
 					color = { fg = colors.gold, gui = "italic" },
 				},
+
 			},
 
 			-- ⑤ Filetype pill
@@ -285,14 +338,32 @@ return {
 					color = { gui = "bold" },
 					icon_only = true,
 				},
+
 				{
 					function()
-						local line = vim.fn.line(".")
-						local col = vim.fn.col(".")
-						return string.format("󰁮 %d:%d ", line, col)
+						-- 加载中显示动画，完成后显示 LSP 名称
+						if b_coc_lsp_loading then
+							-- 简单的旋转动画
+							local frames = { "󰧱", "󰧲", "󰧳", "󰧴", "󰧵", "󰧶", "󰧷", "󰧸" }
+							local i = math.floor(vim.loop.hrtime() / 1e7) % #frames + 1
+							return frames[i] .. " LSP"
+						else
+							return b_coc_lsp_name
+						end
 					end,
-					color = { fg = colors.grey },
-				},
+					icon = " ",
+					cond = function()
+						-- 加载中或识别到具体的 LSP 时都显示
+						return b_coc_lsp_loading or b_coc_lsp_name ~= ""
+					end,
+					color = function()
+						if b_coc_lsp_loading then
+							return { fg = colors.cyan }
+						else
+							return { fg = colors.black, gui = "bold" }
+						end
+					end,
+				}
 			},
 		},
 		inactive_sections = {
