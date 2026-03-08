@@ -42,5 +42,20 @@ return { {
 		post = function() end,
 	},
 },
-	{ "HiPhish/rainbow-delimiters.nvim" }
+	{ "HiPhish/rainbow-delimiters.nvim" },
+	{
+		"echasnovski/mini.animate",
+		version = false,
+		config = function()
+			require("mini.animate").setup({
+				-- 开启平滑滚动
+				scroll = {
+					enable = true,
+				},
+				-- 也可以顺便开启光标动画和窗口动画
+				cursor = { enable = false },
+				window = { enable = true },
+			})
+		end
+	}
 }
