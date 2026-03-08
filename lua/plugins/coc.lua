@@ -87,14 +87,14 @@ return {
 		keyset("n", "[g", "<Plug>(coc-diagnostic-prev)", { silent = true, desc = "上一个诊断" })
 		keyset("n", "]g", "<Plug>(coc-diagnostic-next)", { silent = true, desc = "下一个诊断" })
 		-- keyset("n", "<leader>gg", ":<C-u>CocList diagnostics<cr>", { silent = true })
-		keyset("n", "<leader>gg", ":Telescope coc diagnostics<CR>", { silent = true, desc = "诊断" })
-		keyset("n", "<leader>gG", ":CocList diagnostics<CR>", { silent = true, desc = "工作区诊断" })
-
-		-- GoTo code navigation
-		keyset("n", "gd", "<Plug>(coc-definition)", { silent = true, desc = "跳转到定义" })
-		keyset("n", "gy", "<Plug>(coc-type-definition)", { silent = true, desc = "跳转到类型定义" })
-		keyset("n", "gi", "<cmd>Telescope coc implementations<CR>", { silent = true, desc = "跳转到实现" })
-		keyset("n", "gr", "<cmd>Telescope coc references<CR>", { silent = true, desc = "跳转到引用" })
+		-- keyset("n", "<leader>gg", ":Telescope coc diagnostics<CR>", { silent = true, desc = "诊断" })
+		-- keyset("n", "<leader>gG", ":CocList diagnostics<CR>", { silent = true, desc = "工作区诊断" })
+		--
+		-- -- GoTo code navigation
+		-- keyset("n", "gd", "<Plug>(coc-definition)", { silent = true, desc = "跳转到定义" })
+		-- keyset("n", "gy", "<Plug>(coc-type-definition)", { silent = true, desc = "跳转到类型定义" })
+		-- keyset("n", "gi", "<cmd>Telescope coc implementations<CR>", { silent = true, desc = "跳转到实现" })
+		-- keyset("n", "gr", "<cmd>Telescope coc references<CR>", { silent = true, desc = "跳转到引用" })
 		-- keyset("n", "gr", "<Plug>(coc-references)", { silent = true, desc = "跳转到引用" })
 		-- keyset("n", "gi", "<Plug>(coc-implementation)", { silent = true })
 		keyset("n", "<C-c>", ":<C-u>CocList<cr>", { silent = true })
