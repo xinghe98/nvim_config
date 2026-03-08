@@ -8,7 +8,6 @@ return {
 		config = function(_, opts)
 			require("snacks-coc").setup(opts)
 		end,
-		-- 下面是你原来的快捷键替换后的懒加载写法：
 		keys = {
 			-- 诊断
 			{ "<leader>gg", function() Snacks.picker.pick("coc_diagnostics") end, desc = "诊断", silent = true },
