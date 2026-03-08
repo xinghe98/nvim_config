@@ -47,10 +47,11 @@ return { {
 		"echasnovski/mini.animate",
 		version = false,
 		config = function()
+			local is_windows = vim.fn.has('win32') == 1
 			require("mini.animate").setup({
 				-- 开启平滑滚动
 				scroll = {
-					enable = true,
+					enable = not is_windows,
 				},
 				-- 也可以顺便开启光标动画和窗口动画
 				cursor = { enable = false },
