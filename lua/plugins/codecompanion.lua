@@ -7,13 +7,13 @@ return {
 		"xinghe98/codecompanion-model-selector.nvim",
 	},
 	init = function()
-		require("plugins.codecompanion.keymaps")
+		require("config.codecompanion.keymaps")
 	end,
 	opts = {
-		extensions = require("plugins.codecompanion.extensions"),
+		extensions = require("config.codecompanion.extensions"),
 		language = "zh-CN",
-		strategies = require("plugins.codecompanion.strategies"),
-		prompt_library = require("plugins.codecompanion.prompts"),
+		strategies = require("config.codecompanion.strategies"),
+		prompt_library = require("config.codecompanion.prompts"),
 		-- opts = {
 		-- 	log_level = "DEBUG", -- TRACE|DEBUG|ERROR|INFO
 		-- },
