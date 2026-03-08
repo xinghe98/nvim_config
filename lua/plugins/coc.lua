@@ -48,9 +48,6 @@ return {
 	hi CocHighlightText guibg=#696969
 	]])
 
-		-----------telescope
-		require('telescope').load_extension('coc')
-
 		vim.api.nvim_command("command! -nargs=? Fold :call CocAction('fold', <f-args>)")
 		vim.api.nvim_command("hi! link CocPum Pmenu")
 
