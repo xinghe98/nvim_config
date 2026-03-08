@@ -54,7 +54,27 @@ return { {
 				},
 				-- 也可以顺便开启光标动画和窗口动画
 				cursor = { enable = false },
-				window = { enable = true },
+				open = {
+					-- Whether to enable this animation
+					enable = false,
+
+					-- Timing of animation (how steps will progress in time)
+					-- 'winblend' (window transparency) generator for floating window
+				},
+
+				-- Window close
+				close = {
+					-- Whether to enable this animation
+					enable = false,
+					-- 'winblend' (window transparency) generator for floating window
+				},
+				-- Window resize
+				resize = {
+					-- Whether to enable this animation
+					enable = true,
+
+				},
+
 			})
 		end
 	}

@@ -5,6 +5,8 @@ return {
 		"lalitmee/codecompanion-spinners.nvim",
 		"j-hui/fidget.nvim",
 		"xinghe98/codecompanion-model-selector.nvim",
+		"bassamsdata/fs-monitor.nvim"
+
 	},
 	init = function()
 		require("config.codecompanion.keymaps")
