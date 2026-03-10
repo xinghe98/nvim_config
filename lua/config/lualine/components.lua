@@ -1,9 +1,17 @@
 -- Lualine custom components
 local M = {}
 
-local theme = require("config.lualine.theme")
-local colors = theme.colors
+local colors = require("config.lualine.color")
 
+
+local sep_fwd = { -- \xxx\ forward leaning (left side: a, b)
+	left = vim.fn.nr2char(0xE0BE),
+	right = vim.fn.nr2char(0xE0B8),
+}
+local sep_bwd = { -- /xxxx/ backward leaning (right side: z)
+	left = vim.fn.nr2char(0xE0BA),
+	right = vim.fn.nr2char(0xE0BC),
+}
 --------------------------------------------------------------------------------
 -- CoC LSP Name Component
 --------------------------------------------------------------------------------
@@ -129,7 +137,7 @@ M.coc_lsp = {
 		-- 加载中或识别到具体的 LSP 时都显示
 		return b_coc_lsp_loading or b_coc_lsp_name ~= ""
 	end,
-	separator = { left = '', right = '' },
+	separator = sep_bwd,
 	color = function()
 		if b_coc_lsp_loading then
 			return { fg = colors.violet, bg = colors.grey }
@@ -154,39 +162,7 @@ M.flutter_device = {
 	icon = "",
 	cond = function()
 		local decorations = vim.g.flutter_tools_decorations
-		return decorations ~= nil
-			and decorations.device ~= nil
-			and decorations.device ~= ""
-	end,
-}
-
---------------------------------------------------------------------------------
--- Codeium Component
---------------------------------------------------------------------------------
-
-M.codeium = {
-	function()
-		local ok, vt = pcall(require, "codeium.virtual_text")
-		if not ok then return "" end
-		local status = vt.status()
-		if status.state == "waiting" then
-			return "󰔟 …"
-		elseif status.state == "completions" and status.total > 0 then
-			return string.format("󰚩 %d/%d", status.current, status.total)
-		else
-			return "󰚩"
-		end
-	end,
-	color = function()
-		local ok, vt = pcall(require, "codeium.virtual_text")
-		if not ok then return {} end
-		local state = vt.status().state
-		if state == "completions" then
-			return { fg = "#79dac8", gui = "bold" }
-		elseif state == "waiting" then
-			return { fg = "#d183e8" }
-		end
-		return {}
+		return decorations ~= nil and decorations.device ~= nil and decorations.device ~= ""
 	end,
 }
 
@@ -195,22 +171,35 @@ M.codeium = {
 --------------------------------------------------------------------------------
 
 local ok_ms, ms = pcall(require, "cc_model_selector")
-M.ai_model = ok_ms and ms.get_lualine_component(
-	{
-		icon = "🤖",
-		color = { fg = "#a9b665", gui = "bold" },
-	}
-) or {
-	function() return "" end,
-	cond = function() return false end,
+M.ai_model = ok_ms and ms.get_lualine_component({
+	icon = "🤖",
+	color = { fg = colors.green, gui = "bold" },
+}) or {
+	function()
+		return ""
+	end,
+	cond = function()
+		return false
+	end,
 }
 
 --------------------------------------------------------------------------------
 -- CodeCompanion Spinner Component
 --------------------------------------------------------------------------------
 
-M.cc_spinner = require("codecompanion._extensions.spinner.styles.lualine").get_lualine_component()
+M.spinner = require("codecompanion._extensions.spinner.styles.lualine").get_lualine_component()
 
+--------------------------------------------------------------------------------
+-- Spacer Component (transparent gap)
+--------------------------------------------------------------------------------
+
+M.spacer = {
+	function()
+		return " "
+	end,
+	padding = 0,
+	color = { fg = "NONE", bg = "NONE" },
+}
 --------------------------------------------------------------------------------
 -- Coc Status Component
 --------------------------------------------------------------------------------
@@ -220,6 +209,7 @@ M.coc_status = {
 	cond = function() return vim.g.coc_status ~= nil and vim.g.coc_status ~= "" end,
 	icon = "󰿘",
 	color = { fg = colors.gold, gui = "italic" },
+	separator = sep_bwd,
 }
 
 return M
