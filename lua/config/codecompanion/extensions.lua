@@ -8,7 +8,7 @@ return {
 					base = "openai_compatible",
 					env = {
 						url = "https://openrouter.ai/api/v1",
-						api_key = "cmd:echo $OPENROUTER_KEY",
+						api_key = "cmd:echo $openrouter",
 						chat_url = "/chat/completions",
 					},
 					default = "minimax/minimax-m2.5",
