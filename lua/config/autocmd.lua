@@ -66,27 +66,3 @@ vim.api.nvim_create_autocmd('BufReadPost', {
 		end
 	end,
 })
-
--- coc diagnostic bufferline (more robust refresh)
-local coc_diag_group = vim.api.nvim_create_augroup("CocDiagnosticRefresh", { clear = true })
-
-local function refresh_bufferline()
-	vim.schedule(function()
-		pcall(function()
-			require("bufferline").refresh()
-		end)
-	end)
-end
-
--- coc diagnostics changed
-vim.api.nvim_create_autocmd("User", {
-	group = coc_diag_group,
-	pattern = "CocDiagnosticChange",
-	callback = refresh_bufferline,
-})
-
--- fallback events: typing/undo/leave insert can all affect diagnostics visibility timing
-vim.api.nvim_create_autocmd({ "TextChanged", "TextChangedI", "InsertLeave", "BufEnter" }, {
-	group = coc_diag_group,
-	callback = refresh_bufferline,
-})

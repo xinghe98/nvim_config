@@ -107,6 +107,7 @@
 	"diagnostic.virtualTextPrefix": "↪  ",
 	"diagnostic.virtualTextCurrentLineOnly": false,
 	"diagnostic.virtualText": true,
+	"diagnostic.displayByVimDiagnostic": true,
 	"scss.validate": true,
 	"diagnostic.enableMessage": "jump",
 	"session.saveOnVimLeave": false,

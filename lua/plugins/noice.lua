@@ -41,7 +41,7 @@ return {
 			messages = {
 				-- NOTE: If you enable messages, then the cmdline is enabled automatically.
 				-- This is a current Neovim limitation.
-				enabled = true, -- enables the Noice messages UI
+				enabled = true,  -- enables the Noice messages UI
 				view = "mini",   -- default view for messages
 				view_error = "notify", -- view for errors
 				view_warn = "mini", -- view for warnings
@@ -203,6 +203,16 @@ return {
 						kind = "",
 						find = "written",
 					},
+					opts = { skip = true },
+				},
+				{
+					-- 拦截常规的消息显示
+					filter = {
+						event = "msg_show",
+					},
+					condition = function()
+						return vim.bo.filetype == "list"
+					end,
 					opts = { skip = true },
 				},
 			},  --- @see section on routes
